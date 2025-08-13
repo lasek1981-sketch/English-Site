@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>English Sprint – ucz się sprytnie</title>
-  <meta name="description" content="Lekka aplikacja do nauki angielskiego: fiszki, quizy, idiomy i phrasal verbs." />
+  <meta name="description" content="Lekka aplikacja do nauki angielskiego: fiszki, quizy, idiomy i phrasal verbs. Codzienna lekcja." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -14,8 +14,8 @@
     <button id="themeToggle" class="btn ghost" aria-label="Przełącz motyw">🌓</button>
   </nav>
   <section id="hero" class="hero">
-    <h1>Ucz się angielskiego szybciej</h1>
-    <p>Fiszki z SRS, szybkie quizy i codzienna dawka idiomów – wszystko w przeglądarce.</p>
+    <h1>Codzienna lekcja 🇬🇧</h1>
+    <p>Każdego dnia nowy zestaw: słówka, quiz i idiomy. Pro tip: <kbd>Spacja</kbd> odsłania tłumaczenie.</p>
     <div class="cta-row">
       <a class="btn primary" href="#flashcards">Fiszki</a>
       <a class="btn" href="#quiz">Quiz</a>
@@ -25,6 +25,10 @@
 </header>
 
 <main>
+  <section class="card section">
+    <div>Dzisiejsza data: <strong id="todayStr"></strong> • Zestaw nr <strong id="lessonIdx"></strong></div>
+  </section>
+
   <!-- FISZKI -->
   <section id="flashcards" class="card section">
     <header class="section-head">
@@ -35,9 +39,9 @@
       </div>
     </header>
 
-    <div class="flashcard" role="button" aria-pressed="false" tabindex="0" id="flashcard">
+    <div class="flashcard" role="button" aria-pressed="false" tabindex="0" id="flashcard" aria-label="Karta fiszki. Naciśnij spację, aby odwrócić.">
       <div class="front" id="fcFront">word</div>
-      <div class="back" id="fcBack">definition + example</div>
+      <div class="back" id="fcBack">tłumaczenie</div>
     </div>
 
     <div class="controls">
@@ -47,7 +51,7 @@
       <button class="btn good" id="goodBtn">Znam</button>
       <button class="btn great" id="easyBtn">Łatwe</button>
     </div>
-    <p class="hint">Kliknij kartę lub naciśnij <kbd>Space</kbd>, aby odwrócić.</p>
+    <p class="hint">Kliknij kartę lub naciśnij <kbd>Space</kbd>, aby zobaczyć <b>tłumaczenie PL</b> i przykład.</p>
   </section>
 
   <!-- QUIZ -->

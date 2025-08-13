@@ -70,7 +70,7 @@ main { max-width: 960px; margin: 0 auto; padding: 8px 16px 64px; }
 .spacer { flex: 1; }
 
 .flashcard {
-  position: relative; height: 220px; border-radius: 16px; overflow: hidden;
+  position: relative; height: 240px; border-radius: 16px; overflow: hidden;
   display: grid; place-items: center; margin: 10px 0 12px;
   background: linear-gradient(135deg, #101326 0%, #1b1f3f 100%);
   border: 1px solid color-mix(in oklab, var(--card), white 10%);
@@ -82,7 +82,10 @@ main { max-width: 960px; margin: 0 auto; padding: 8px 16px 64px; }
   backface-visibility: hidden;
 }
 .flashcard .front { font-size: 28px; font-weight: 700; }
-.flashcard .back { transform: rotateY(180deg); color: var(--muted); font-size: 18px; text-align: center; }
+.flashcard .back { transform: rotateY(180deg); text-align: center; }
+.flashcard .back .pl { font-size: 26px; font-weight: 800; }
+.flashcard .back .en { color: var(--muted); margin-top: 6px; }
+.flashcard .back .ex { font-style: italic; margin-top: 4px; color: var(--muted); }
 
 .hint { color: var(--muted); font-size: 14px; }
 
