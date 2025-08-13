@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English Sprint – ucz się sprytnie</title>
+  <meta name="description" content="Lekka aplikacja do nauki angielskiego: fiszki, quizy, idiomy i phrasal verbs." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="#hero">English Sprint</a>
+    <button id="themeToggle" class="btn ghost" aria-label="Przełącz motyw">🌓</button>
+  </nav>
+  <section id="hero" class="hero">
+    <h1>Ucz się angielskiego szybciej</h1>
+    <p>Fiszki z SRS, szybkie quizy i codzienna dawka idiomów – wszystko w przeglądarce.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#flashcards">Fiszki</a>
+      <a class="btn" href="#quiz">Quiz</a>
+      <a class="btn" href="#idioms">Idiomy</a>
+    </div>
+  </section>
+</header>
+
+<main>
+  <!-- FISZKI -->
+  <section id="flashcards" class="card section">
+    <header class="section-head">
+      <h2>Fiszki (SRS)</h2>
+      <div class="mini-stats">
+        <span>Do powtórki: <strong id="dueCount">0</strong></span>
+        <span>Wszystkie: <strong id="totalCount">0</strong></span>
+      </div>
+    </header>
+
+    <div class="flashcard" role="button" aria-pressed="false" tabindex="0" id="flashcard">
+      <div class="front" id="fcFront">word</div>
+      <div class="back" id="fcBack">definition + example</div>
+    </div>
+
+    <div class="controls">
+      <button class="btn ghost" id="skipBtn">⏭ Pomiń</button>
+      <div class="spacer"></div>
+      <button class="btn bad" id="againBtn">Jeszcze raz</button>
+      <button class="btn good" id="goodBtn">Znam</button>
+      <button class="btn great" id="easyBtn">Łatwe</button>
+    </div>
+    <p class="hint">Kliknij kartę lub naciśnij <kbd>Space</kbd>, aby odwrócić.</p>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" class="card section">
+    <header class="section-head">
+      <h2>Quiz – wybierz poprawne znaczenie</h2>
+      <div class="mini-stats">
+        <span>Wynik: <strong id="score">0</strong></span>
+      </div>
+    </header>
+
+    <div id="quizArea">
+      <div id="question" class="question">Pytanie pojawi się tutaj</div>
+      <div id="answers" class="answers"></div>
+      <button class="btn" id="nextQ">Następne pytanie</button>
+    </div>
+  </section>
+
+  <!-- IDIOMY / PHRASAL VERBS -->
+  <section id="idioms" class="card section">
+    <header class="section-head">
+      <h2>Idiomy &amp; Phrasal verbs (dzisiejsza paczka)</h2>
+    </header>
+
+    <div class="grid two">
+      <div>
+        <h3>Idiomy</h3>
+        <ul id="idiomList" class="list"></ul>
+      </div>
+      <div>
+        <h3>Phrasal verbs</h3>
+        <ul id="phrasalList" class="list"></ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> English Sprint. Zapis lokalny w przeglądarce, bez chmury.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
