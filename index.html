@@ -3,19 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>English Sprint – ucz się sprytnie</title>
-  <meta name="description" content="Lekka aplikacja do nauki angielskiego: fiszki, quizy, idiomy i phrasal verbs. Codzienna lekcja." />
+  <title>English Sprint – codzienna lekcja</title>
+  <meta name="description" content="Codzienna paczka: słówka, quiz, idiomy i phrasal verbs. TTS i tłumaczenia po kliknięciu." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 <header class="site-header">
   <nav class="nav">
     <a class="brand" href="#hero">English Sprint</a>
-    <button id="themeToggle" class="btn ghost" aria-label="Przełącz motyw">🌓</button>
+    <div class="nav-right">
+      <button id="themeToggle" class="btn ghost" aria-label="Przełącz motyw">🌓</button>
+      <button id="voiceTest" class="btn ghost" aria-label="Test głosu">🔊 Test</button>
+    </div>
   </nav>
   <section id="hero" class="hero">
     <h1>Codzienna lekcja 🇬🇧</h1>
-    <p>Każdego dnia nowy zestaw: słówka, quiz i idiomy. Pro tip: <kbd>Spacja</kbd> odsłania tłumaczenie.</p>
+    <p>Nowy zestaw każdego dnia. <b>Kliknij kartę lub naciśnij <kbd>Spację</kbd></b>, aby odsłonić <b>tłumaczenie PL</b> i przykład. Kliknij <b>🔊</b>, by usłyszeć wymowę.</p>
     <div class="cta-row">
       <a class="btn primary" href="#flashcards">Fiszki</a>
       <a class="btn" href="#quiz">Quiz</a>
@@ -32,16 +35,20 @@
   <!-- FISZKI -->
   <section id="flashcards" class="card section">
     <header class="section-head">
-      <h2>Fiszki (SRS)</h2>
+      <h2>Fiszki (kliknij, aby zobaczyć tłumaczenie)</h2>
       <div class="mini-stats">
         <span>Do powtórki: <strong id="dueCount">0</strong></span>
         <span>Wszystkie: <strong id="totalCount">0</strong></span>
       </div>
     </header>
 
-    <div class="flashcard" role="button" aria-pressed="false" tabindex="0" id="flashcard" aria-label="Karta fiszki. Naciśnij spację, aby odwrócić.">
-      <div class="front" id="fcFront">word</div>
-      <div class="back" id="fcBack">tłumaczenie</div>
+    <div class="flashcard" role="button" aria-pressed="false" tabindex="0" id="flashcard">
+      <div class="front" id="fcFront"><span class="wordText">word</span> <button class="speak btn ghost" id="fcSpeak">🔊</button></div>
+      <div class="back" id="fcBack">
+        <div class="pl" id="fcPl">tłumaczenie</div>
+        <div class="en" id="fcDef">definicja EN</div>
+        <div class="ex" id="fcEx">przykład</div>
+      </div>
     </div>
 
     <div class="controls">
@@ -51,20 +58,22 @@
       <button class="btn good" id="goodBtn">Znam</button>
       <button class="btn great" id="easyBtn">Łatwe</button>
     </div>
-    <p class="hint">Kliknij kartę lub naciśnij <kbd>Space</kbd>, aby zobaczyć <b>tłumaczenie PL</b> i przykład.</p>
   </section>
 
   <!-- QUIZ -->
   <section id="quiz" class="card section">
     <header class="section-head">
-      <h2>Quiz – wybierz poprawne znaczenie</h2>
+      <h2>Quiz – tłumaczenie na PL</h2>
       <div class="mini-stats">
         <span>Wynik: <strong id="score">0</strong></span>
       </div>
     </header>
 
     <div id="quizArea">
-      <div id="question" class="question">Pytanie pojawi się tutaj</div>
+      <div id="question" class="question">
+        <button class="speak btn ghost" id="quizSpeak">🔊</button>
+        <span id="questionText">Pytanie pojawi się tutaj</span>
+      </div>
       <div id="answers" class="answers"></div>
       <button class="btn" id="nextQ">Następne pytanie</button>
     </div>
@@ -73,7 +82,7 @@
   <!-- IDIOMY / PHRASAL VERBS -->
   <section id="idioms" class="card section">
     <header class="section-head">
-      <h2>Idiomy &amp; Phrasal verbs (dzisiejsza paczka)</h2>
+      <h2>Idiomy &amp; Phrasal verbs (z wymową)</h2>
     </header>
 
     <div class="grid two">
@@ -90,7 +99,7 @@
 </main>
 
 <footer class="site-footer">
-  <p>© <span id="year"></span> English Sprint. Zapis lokalny w przeglądarce, bez chmury.</p>
+  <p>© <span id="year"></span> English Sprint</p>
 </footer>
 
 <script src="app.js"></script>
