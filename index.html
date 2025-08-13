@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>English Sprint – codzienna lekcja</title>
-  <meta name="description" content="Codzienna paczka: słówka, quiz, idiomy i phrasal verbs. TTS i tłumaczenia po kliknięciu." />
+  <meta name="description" content="Codzienna paczka: słówka, quiz, idiomy i phrasal verbs. Tłumaczenia PL po kliknięciu i wymowa (TTS)." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -13,12 +13,12 @@
     <a class="brand" href="#hero">English Sprint</a>
     <div class="nav-right">
       <button id="themeToggle" class="btn ghost" aria-label="Przełącz motyw">🌓</button>
-      <button id="voiceTest" class="btn ghost" aria-label="Test głosu">🔊 Test</button>
+      <button id="voiceTest" class="btn ghost" aria-label="Test wymowy">🔊 Test</button>
     </div>
   </nav>
   <section id="hero" class="hero">
     <h1>Codzienna lekcja 🇬🇧</h1>
-    <p>Nowy zestaw każdego dnia. <b>Kliknij kartę lub naciśnij <kbd>Spację</kbd></b>, aby odsłonić <b>tłumaczenie PL</b> i przykład. Kliknij <b>🔊</b>, by usłyszeć wymowę.</p>
+    <p>Nowy zestaw każdego dnia. <b>Kliknij kartę lub naciśnij <kbd>Spację</kbd></b>, aby odsłonić <b>tłumaczenie PL</b> i przykład. Użyj <b>🔊</b>, by usłyszeć wymowę.</p>
     <div class="cta-row">
       <a class="btn primary" href="#flashcards">Fiszki</a>
       <a class="btn" href="#quiz">Quiz</a>
@@ -29,25 +29,28 @@
 
 <main>
   <section class="card section">
-    <div>Dzisiejsza data: <strong id="todayStr"></strong> • Zestaw nr <strong id="lessonIdx"></strong></div>
+    <div>Dzisiejsza data: <strong id="todayStr">—</strong> • Zestaw nr <strong id="lessonIdx">—</strong></div>
   </section>
 
   <!-- FISZKI -->
   <section id="flashcards" class="card section">
     <header class="section-head">
-      <h2>Fiszki (kliknij, aby zobaczyć tłumaczenie)</h2>
+      <h2>Fiszki</h2>
       <div class="mini-stats">
         <span>Do powtórki: <strong id="dueCount">0</strong></span>
         <span>Wszystkie: <strong id="totalCount">0</strong></span>
       </div>
     </header>
 
-    <div class="flashcard" role="button" aria-pressed="false" tabindex="0" id="flashcard">
-      <div class="front" id="fcFront"><span class="wordText">word</span> <button class="speak btn ghost" id="fcSpeak">🔊</button></div>
-      <div class="back" id="fcBack">
+    <div class="flashcard" role="button" aria-pressed="false" tabindex="0" id="flashcard" aria-label="Karta fiszki. Kliknij lub naciśnij spację, aby odwrócić.">
+      <div class="face front" id="fcFront">
+        <span class="wordText">word</span>
+        <button class="speak btn ghost" id="fcSpeak" aria-label="Odtwórz wymowę">🔊</button>
+      </div>
+      <div class="face back" id="fcBack">
         <div class="pl" id="fcPl">tłumaczenie</div>
         <div class="en" id="fcDef">definicja EN</div>
-        <div class="ex" id="fcEx">przykład</div>
+        <div class="ex" id="fcEx">przykład użycia</div>
       </div>
     </div>
 
@@ -58,6 +61,7 @@
       <button class="btn good" id="goodBtn">Znam</button>
       <button class="btn great" id="easyBtn">Łatwe</button>
     </div>
+    <p class="hint">Tip: naciśnij <kbd>Spację</kbd>, aby szybko zajrzeć na odwrotną stronę.</p>
   </section>
 
   <!-- QUIZ -->
@@ -71,7 +75,7 @@
 
     <div id="quizArea">
       <div id="question" class="question">
-        <button class="speak btn ghost" id="quizSpeak">🔊</button>
+        <button class="speak btn ghost" id="quizSpeak" aria-label="Odtwórz wymowę pytania">🔊</button>
         <span id="questionText">Pytanie pojawi się tutaj</span>
       </div>
       <div id="answers" class="answers"></div>
